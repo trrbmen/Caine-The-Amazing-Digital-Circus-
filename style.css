@@ -1,0 +1,93 @@
+body {
+  background: black;
+  color: red;
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: red;
+  text-shadow: 0 0 10px red;
+}
+
+.circle-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.circle {
+  width: 90px;
+  height: 90px;
+  background: red;
+  border-radius: 50%;
+  box-shadow: 0 0 25px red;
+  position: relative;
+}
+
+.circle::before,
+.circle::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: red;
+  border-radius: 50%;
+  top: -10px;
+  left: 40px;
+  animation: orbit 1s linear infinite;
+}
+
+.circle::after {
+  top: auto;
+  bottom: -10px;
+  animation-delay: 0.5s;
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(40px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
+}
+
+#status {
+  text-align: center;
+  margin-top: 15px;
+  color: red;
+  opacity: 0.8;
+}
+
+#chat {
+  margin-top: 20px;
+  padding: 10px;
+  height: 300px;
+  overflow-y: auto;
+}
+
+input {
+  width: 80%;
+  margin: 20px auto;
+  display: block;
+  padding: 10px;
+  background: black;
+  border: 1px solid red;
+  color: red;
+  outline: none;
+  font-family: monospace;
+}
+
+.glitch {
+  animation: glitch 0.2s infinite;
+  text-shadow: 2px 0 red, -2px 0 black;
+}
+
+@keyframes glitch {
+  0% { transform: translate(1px, -1px); }
+  25% { transform: translate(-1px, 1px); }
+  50% { transform: translate(1px, 1px); }
+  75% { transform: translate(-1px, -1px); }
+  100% { transform: translate(0); }
+}
